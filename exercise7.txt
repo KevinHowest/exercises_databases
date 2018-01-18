@@ -17,3 +17,4 @@ Find the restaurant Id, name, borough and cuisine for those restaurants which ar
 db.restaurants.find({borough: {$nin: ['Staten Island', 'Queens', 'Bronxor Brooklyn']}},{name:1,borough:1,cuisine:1})
 
 Find the restaurant Id, name, borough and cuisine for those restaurants which achieved a score which is not more than 10.
+db.restaurants.find({grades: {$elemMatch: {score: {$lte: 10}}} },{name:1,borough:1,cuisine:1})
