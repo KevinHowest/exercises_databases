@@ -1,0 +1,7 @@
+UNF	dentist(stafNo, dentistName, patientNo, date, time, surgeryNo)
+1NF	dentist(stafNo, dentistName, patientNo, date, time, surgeryNo)
+2NF	dentist(stafNo, dentistName)
+		patient(patientNo, patientName)
+		appointment(appointmentId, date, time, patientNo, surgeryNo, stafNo)
+3NF	2NF
+BCNF
