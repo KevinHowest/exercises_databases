@@ -1,0 +1,5 @@
+
+curl 'http://rest.ensembl.org/sequence/region/homo_sapiens/13:32889000..32891000?mask=hard' -H 'Content-type:text/x-fasta'^C
+curl 'http://rest.ensembl.org/sequence/region/homo_sapiens/13:32889000..32891000?mask=soft' -H 'Content-type:text/x-fasta'^C
+4 repeating groups (blokken van N tellen bij hard mask)
+
