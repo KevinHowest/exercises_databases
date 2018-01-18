@@ -1,0 +1,17 @@
+List the names and addresses of all guests in London, alphabetically ordered by name:
+SELECT guestname, guestaddress, hotelname, city FROM guest JOIN booking ON guest.guestno=booking.guestno JOIN hotel ON booking.hotelno=hotel.hotelno WHERE city="London"ORDER BY guestname
+
+List all double or family rooms wit a price below $40 per night, cheapest first
+SELECT roomno, hotelname, city, type, price FROM room JOIN hotel ON room.hotelno=hotel.hotelno WHERE (type='double' or type='family') and price < 40 ORDER BY price asc;
+
+List the bookings for which no date_to has been specified.
+SELECT hotelname, city, guestname, datefrom, dateto FROM booking JOIN hotel ON booking.hotelno = hotel.hotelno JOIN guest ON booking.guestno=guest.guestno WHERE dateto IS NULL;
+
+What is the average price of a room?
+SELECT avg(price) FROM room;
+
+What is the total revenue per night from all double rooms?
+SELECT sum(price) FROM room WHERE type='double'
+
+How many different guests have made bookings for August?
+SELECT DISTINCT(guestname) FROM guest JOIN booking ON guest.guestno=booking.guestno WHERE month(datefrom)=8;
