@@ -1,0 +1,12 @@
+UNF	hospital(PatientNumber, FullName, BedNumber, WardNumber, WardName, (DrugNumber, DrugName, Description, Dosage, MethodOfAdmin, UnitsPerDay, StartDate, FinishDate))
+1NF	patient(PatientNumber, FullName, BedNumber,WardNumber,WardName)
+		drug(PatientNumber, DrugNumber, Name, Description, Dosage, MethodOfAdmin, UnitsPerDay, StartDate, FinishDate)
+2NF	patient(PatientNumber, FullName, BedNumber, WardNumber)
+		ward(WardNumber, WardName)
+		patient_drug(PatientNumber, DrugNumber, Dosage, MethodOfAdmin, UnitsPerDay, StartDate, FinishDate)
+		drug(Drugnumber, Name, Description)
+3NF	patient(PatientNumber, FullName, BedNumber, WardNumber)
+		ward(WardNumber, WardName)
+		patient_drug(PatientNumber, DrugNumber, UnitsPerDay, StartDate, FinishDate)
+		drug(DrugNumber, Name, Description, Dosage, MethodOfAdmin)
+BCNF	3NF
