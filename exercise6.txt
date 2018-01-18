@@ -1,0 +1,29 @@
+Retrieve the name, city and grade point average (GPA) of students, greater than or equal to 3.7
+SELECT concat(stdFirstName, " ", stdLastName) as 'Name', stdCity, stdGPA FROM student WHERE stdGPA >= 3.7
+
+List the name and hiring date of faculty hired in 1999 or 2000
+SELECT concat(FacFirstName, " ", FacLastName), FacHireDate FROM faculty WHERE year(FacHireDate) between 1999 and 2000
+
+List the offer number, course number and faculty Social Security number for course offerings scheduled in fall 2005 or winter 2006
+SELECT OfferNo, CourseNo, FacSSN FROM offering WHERE (OffTerm='Fall' and OffYear='2005') OR (OffTerm='Winter' and Offyear='2006');
+
+List the offering number, course number, days and time of offerings containing the words 'database' or 'programming' in the course description and taught in spring 2006.
+SELECT offering.OfferNo, offering.CourseNo, OffDays, OffTime FROM offering JOIN course ON offering.CourseNo=course.CourseNo WHERE (OffTerm='spring' AND OffYear='2006') AND (crsDesc like '%programming' OR crsDesc like '%database')
+
+List the offer number, course number and name of the instructor of IS course offerings scheduled in fall 2005 taught by assistant professors
+
+
+Summarize the averageGPA of students by major
+SELECT avg(stdGPA), stdMajor FROM student GROUP BY stdMajor
+
+Summarize the number of offerings and unique courses by year.
+
+
+Summarize the average GPA of upper-division (junior or senior) students by major.Only list the major with average GPA greater than 3.1.
+SELECT avg(stdGPA), stdMajor FROM student WHERE (stdClass='JR' or stdClass='SR') GROUP BY stdMajor HAVING avg(stdGPA)>3.1
+
+Summarize the minimum and maximum GPA of students by major and class.
+SELECT min(stdGPA), max(stdGPA), stdMajor, stdClass FROM student GROUP BY stdMajor, stdClass 
+
+Summarize the number of IS course offering by course description.
+
