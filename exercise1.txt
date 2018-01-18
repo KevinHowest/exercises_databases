@@ -1,0 +1,7 @@
+eerst git repository aanmaken op GitHub
+
+$ git init
+$ git remote add origin https://github.com/KevinHowest/exercise_database.git
+$ git add exercise1.txt
+$ git commit -m "exercise1"
+$ git push -u origin master
