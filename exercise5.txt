@@ -15,3 +15,23 @@ SELECT sum(price) FROM room WHERE type='double'
 
 How many different guests have made bookings for August?
 SELECT DISTINCT(guestname) FROM guest JOIN booking ON guest.guestno=booking.guestno WHERE month(datefrom)=8;
+
+List the price and type of all rooms at the The Tower Hotel.
+SELECT hotelname, type, price FROM room JOIN hotel ON room.hotelno=hotel.hotelno WHERE hotelname='The Tower Hotel'
+
+List all guests currently staying at the The Tower Hotel.
+SELECT guestname, datefrom, dateto, hotelname FROM guest JOIN booking ON guest.guestno=booking.guestno JOIN hotel ON booking.hotelno=hotel.hotelno WHERE (date(dateto) > date(now())) and (hotelname='The Tower Hotel');
+
+List the details of all rooms at the The Tower Hotel, including the name of the guest staying in the room, if the room is occupied.
+FOUT!!!!!
+SELECT room.roomno, type, price, datefrom, dateto FROM booking JOIN room ON booking.roomno=room.roomno WHERE (date(dateto)>date(now()));
+
+List the number of rooms in each hotel in London.
+SELECT count(*), hotelname, city FROM hotel JOIN room ON hotel.hotelno=room.hotelno WHERE city='London' GROUP BY hotelname;
+
+What is the most commonly booked room type for each hotel in London?
+SELECT count(*), hotelname, city FROM hotel JOIN room ON hotel.hotelno=room.hotelno WHERE city='London' GROUP BY hotelname;
+
+Update the price of all rooms by 5%.
+UPDATE room SET price = price*1.05
+
